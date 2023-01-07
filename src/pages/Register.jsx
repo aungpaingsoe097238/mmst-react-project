@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useRegisterUserMutation } from "../features/api/authApi";
+import { Link, Navigate } from "react-router-dom";
+import { useRegisterMutation } from "../features/api/authApi";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -8,13 +9,16 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
 
-  //RTK query
-  const [registerUser] = useRegisterUserMutation();
+  //RTK Query
+  const [register] = useRegisterMutation();
 
-  const registerHandler = async(e) => {
+  //React Router
+  const navigate = useNavigate();
+
+  const registerHandler = async (e) => {
     e.preventDefault();
     const user = { name, email, password, password_confirmation };
-    const data = await registerUser(user)
+    const data = await register(user);
     console.log(data);
   };
 

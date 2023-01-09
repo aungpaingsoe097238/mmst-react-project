@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../features/api/authApi";
 import { removeUser } from "../features/services/authSlice";
 
@@ -23,7 +23,14 @@ const NavBar = () => {
 
   return (
     <nav className="flex justify-between items-center bg-blue-50 px-10 py-1 shadow-sm">
-      <div>React</div>
+      <div>
+        <span>Contact</span>
+        <ul>
+          <li>
+            <Link to="contact-create">Create Contact</Link>
+          </li>
+        </ul>
+      </div>
       <div className="flex items-center gap-5">
         <div>
           <p className="text-sm font-semibold">{user?.name}</p>

@@ -1,12 +1,14 @@
-import React from 'react'
-import NavBar from '../components/NavBar'
+import React from "react";
+import ContactIndex from "../components/contact/ContactIndex";
+import NavBar from "../components/NavBar";
 
 const Dashboard = () => {
   return (
     <div>
-      <NavBar/>
+      <NavBar />
+      <ContactIndex />
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

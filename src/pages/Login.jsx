@@ -5,8 +5,8 @@ import { useLoginMutation } from "../features/api/authApi";
 import { addUser } from "../features/services/authSlice";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("test@gmail.com");
+  const [password, setPassword] = useState("password");
 
   //RTK Query
   const [login] = useLoginMutation();
@@ -21,7 +21,7 @@ const Login = () => {
     const user = { email, password };
     const { data } = await login(user);
     dispatch(addUser({ user: data?.user, token: data?.token }));
-    navigate('/')
+    navigate("/");
   };
 
   return (
